@@ -13,6 +13,9 @@ export class ProductsService {
     return this.productsRepository.find();
   }
 
+  findByIds(ids: string[]) {
+    return this.productsRepository.findByIds(ids);
+  }
   findOne(id: any): Promise<Product> {
     return this.productsRepository.findOne({ where: { id } });
   }
