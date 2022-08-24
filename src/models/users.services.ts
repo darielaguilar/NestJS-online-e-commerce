@@ -27,8 +27,8 @@ export class UsersService {
     }
     return null;
   }
-  findOne(id: string): Promise<User> {
-    return this.usersRepository.findOne(id);
+  findOne(id: any): Promise<User> {
+    return this.usersRepository.findOne({ where: { id } });
   }
 
   updateBalance(id: number, balance: number) {

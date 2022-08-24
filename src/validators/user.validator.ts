@@ -8,7 +8,7 @@ export class UserValidator {
       errors.push('Name cannot be empty');
     }
 
-    if (toValidate.includes('email') && validator.isEmail(body.email)) {
+    if (toValidate.includes('email') && !validator.isEmail(body.email)) {
       errors.push('Invalid Email format');
     }
 

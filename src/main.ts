@@ -26,7 +26,7 @@ async function bootstrap() {
     res.locals.session = req.session;
     const flashErrors: string[] = req.session.flashErrors;
     if (flashErrors) {
-      req.locals.flashErrors = flashErrors;
+      res.locals.flashErrors = flashErrors;
       req.session.flashErrors = null;
     }
     next();

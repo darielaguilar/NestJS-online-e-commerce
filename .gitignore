@@ -30,6 +30,8 @@ lerna-debug.log*
 # Media files
 /public
 
+# Credentials
+mysqltestcredentials.txt
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
