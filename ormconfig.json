@@ -1,11 +1,11 @@
 {
     
     "type":"mysql",
-    "host":"localhost",
+    "host":"bfvaxtkll7mlel3lddv7-mysql.services.clever-cloud.com",
     "port":3306,
-    "username":"root",
-    "password":"",
-    "database":"online_store",
+    "username":"ubk4ovwygkqqfgzf",
+    "password":"6ibGCzsKZaQkVAWQtI3k",
+    "database":"bfvaxtkll7mlel3lddv7",
     "entities":["dist/**/*.entity{.ts,.js}"],
     "synchronize": true
 }
