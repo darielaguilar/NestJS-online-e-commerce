@@ -6,7 +6,6 @@ import * as hbs from 'hbs';
 import * as hbsUtils from 'hbs-utils';
 import * as session from 'express-session';
 
-
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
@@ -32,7 +31,7 @@ async function bootstrap() {
     next();
   });
   app.use('/admin*', function (req, res, next) {
-    if (req.session.user && req.session.user.role) {
+    if (req.session.user && req.session.user.role == 'admin') {
       next();
     } else {
       res.redirect('/');
