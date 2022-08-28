@@ -30,7 +30,7 @@ export class AuthController {
   @Post('/store')
   async store(@Body() body, @Res() response, @Req() request) {
     const toValidate: string[] = ['name', 'email', 'password'];
-    const errors: string[] = UserValidator.validate(body, toValidate);
+    const errors: string[] = UserValidator.RegisterValidate(body, toValidate);
     if (errors.length > 0) {
       request.session.flashErrors = errors;
       return response.redirect('/auth/register');
@@ -59,6 +59,8 @@ export class AuthController {
 
   @Post('/connect')
   async connect(@Body() body, @Req() request, @Res() response) {
+    const toValidate: string[] = ['email', 'password'];
+    const errors: string[] = UserValidator.LoginValidate(body, toValidate);
     const email = body.email;
     const pass = body.password;
     const user = await this.usersService.login(email, pass);
@@ -70,7 +72,10 @@ export class AuthController {
       };
       return response.redirect('/');
     } else {
-      return response.redirect('/auth/login');
+      if (errors.length > 0) {
+        request.session.flashErrors = errors;
+        return response.redirect('/auth/login');
+      }
     }
   }
 
